@@ -1,4 +1,4 @@
-const express = require('express');
+/*const express = require('express');
 const app = express();
 const db = require('./persistence');
 const getItems = require('./routes/getItems');
@@ -30,3 +30,18 @@ const gracefulShutdown = () => {
 process.on('SIGINT', gracefulShutdown);
 process.on('SIGTERM', gracefulShutdown);
 process.on('SIGUSR2', gracefulShutdown); // Sent by nodemon
+*/
+
+const express = require('express');
+const os = require('os');
+
+const app = express();
+const port = 3000;
+
+app.get('/', (req, res) => {
+  res.send('El nombre de este equipo es: ' + os.hostname());
+});
+
+app.listen(port, () => {
+  console.log(`El servidor se está ejecutando en http://localhost:${port}/`);
+});
