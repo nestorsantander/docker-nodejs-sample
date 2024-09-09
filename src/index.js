@@ -39,7 +39,7 @@ const app = express();
 const port = 3000;
 
 app.get('/', (req, res) => {
-  res.send('El nombre de este equipo es: ' + os.hostname());
+  res.send('El nombre de este equipo es: ' + os.hostname() + ' y se ejecuta en ' + os.platform() + ' en su versión ' + os.release());
 });
 
 app.listen(port, () => {
